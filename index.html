@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PortFolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    gridTemplateColumns: {
+                        'auto': 'repeat(auto-fit, minmax(200px, 1fr))',
+                    },
+                    fontFamily: {
+                        Outfit: ["Outfit", "sans-serif"],
+                        Ovo: ["Ovo", "serif"]
+                    },
+                    colors: {
+                        lightHover: '#fcf4ff',
+                        darkhover: '#2a004a',
+                        darktheme: '#11001F'
+                    },
+                    boxshadow: {
+                        'black': '4px_4px_0_#000',
+                        'white': '4px_4px_0_#fff'
+                    }
+                }
+            },
+            darkMode: 'selector'
+        }
+    </script>
+    <script>
+        // Clear form fields when page is loaded
+        window.onload = function () {
+            document.getElementById("contactForm").reset();
+        };
+    </script>
+</head>
+
+<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darktheme dark:text-white">
+
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+        <img src="./images//header-bg-color.png" alt="" class="w-full">
+    </div>
+
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+
+        <!-- ---- Logo -----   -->
+
+        <div class="flex items-center mr-14 cursor-pointer dark:hidden">
+            <div class="text-center">
+                <!-- <h1 class="text-2xl font-Ovo text-gray-800">Chirag Sharma</h1> -->
+                <p class="text-sm font-Outfit text-black-600">PortFolio❤️</p>
+                <!-- <h1 class="text-2xl font-Ovo text-gray-800">Chirag Sharma</h1> -->
+                <p class="text-sm font-Outfit text-black-600 hidden dark:block">DATA ANALYST / BUSINESS INTELLIGENCE
+                    PORTFOLIO</p>
+            </div>
+        </div>
+
+
+
+        <!-- <img src="./images/Bglogo.jpg" alt="Logo" class="w-28 cursor-pointer bg-white mr-14 dark:hidden"> -->
+
+        <!-- <img src="./images/ChiragLogo.png" alt="Logo" class="w-28 cursor-pointer mr-14 hidden dark:block"> -->
+        <p class="text-sm font-Outfit text-white-600 hidden dark:block">PortFolio❤️</p>
+
+
+        <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3
+         bg-white shadow-sm bg-opacity-50 font-Ovo
+         dark:border dark:border-white/50 dark:bg-transparent
+         ">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#work">My Work</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggletheme()">
+                <img src="./images//moon_icon.png" alt="" class="w-6 dark:hidden">
+                <img src="./images//sun_icon.png" alt="" class="w-6 hidden dark:block">
+            </button>
+
+            <!-- ---- Contact -----  -->
+            <!-- <a href="#Contact" class="hidden lg:flex items-center gap-3 px-10 py-2.5 border
+                 border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50">Contact
+                <img src="./images/arrow-icon.png" alt="" class="w-3 dark:hidden">
+                <img src="./images/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block">
+            </a> -->
+
+
+            <button class="block md:hidden ml-3" onclick="openMenu()">
+                <img src="./images//menu-black.png" alt="" class="w-6 dark:hidden">
+                <img src="./images//menu-white.png" alt="" class="w-6 hidden dark:block">
+            </button>
+        </div>
+
+
+        <!-- ------ Mobile View ------  -->
+        <ul id="sideMenu" class="flex md:hidden flex-col gap-2 py-20 px-10 fixed -right-64 top-0 
+        bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkhover dark:text-white">
+
+            <div class="absolute right-6 top-6" onclick="closeMenu()">
+                <img src="./images//close-black.png" alt="" class="w-5 cursor-pointer dark:hidden">
+                <img src="./images//close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block">
+            </div>
+
+            <li><a href="#top" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About Me</a></li>
+            <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+            <li><a href="#work" onclick="closeMenu()">My Work</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- ------ Header Section ----- -->
+
+    <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+        <img src="images/DP.png" alt="Profile Picture" class="w-40 h-40 object-cover rounded-full border-4 border-gray-300 dark:border-gray-600 shadow-xl 
+           hover:scale-105 hover:shadow-2xl transition-transform duration-300 ease-in-out">
+        <h1 class="flex items-end gap-2 text-xl md:text-4xl mb-3 font-Ovo">Chirag Sharma!
+            <!-- <img
+                src="./images/hand-icon.png" alt="" class="w-6"> -->
+        </h1>
+        <h1 class="text-3xl sm:text-6xl lg:text-[30px] font-OutFit">Data isn’t boring — it’s powerful. Let me show you
+            how.</h1>
+        <p class="max-w-2xl mx-auto font-Ovo">Hey there! I’m Chirag Sharma, a Data Analyst with proven experience in
+            transforming data into actionable insights. With expertise in Power BI (M Code), SQL, Python, and Excel,
+            I’ve helped companies optimize their processes, discover hidden opportunities, and achieve measurable
+            growth.
+        </p>
+
+        <div class=" flex flex-col sm:flex-row items-center gap-4 mt-4">
+            <a href="https://github.com/Chiragsharma106" target="_blank" class="px-10 py-3  border rounded-full bg-gradient-to-r 
+                from-[#1cc7cf] to-[#ce50c1] text-white flex items-center gap-2 dark:border-transparent">
+                GitHub <img src="./images/right-arrow-white.png" alt="" class="w-4"></a>
+
+            <a href="https://drive.google.com/file/d/1rOB_ciHGt5k0o0H7h5YoS9smtNocHI07/view?usp=sharing" target="_blank"
+                class="px-10 py-3  border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">
+                My Resume <img src="./images/download-icon.png" alt="" class="w-4"></a>
+        </div>
+
+    </div>
+
+
+    <!-- ----- About Me ------ -->
+
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-10">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
+        <h2 class="text-center text-5xl font-Ovo">About Me</h2>
+
+        <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+            <div class="max-w-max mx-auto relative">
+                <div class="max-w-xs w-full mx-auto relative">
+                    <img src="images/Snapy.jpg" alt="Profile Picture" class="w-full aspect-[3/4] object-cover rounded-2xl border border-gray-300 dark:border-gray-600 shadow-xl 
+           hover:scale-[1.02] hover:shadow-2xl transition-transform duration-500 ease-in-out">
+                </div>
+
+
+
+                <!-- image = "./images/user-image.png" -->
+
+
+            </div>
+
+            <!-- <div class="bg-white w-32 aspect-square 
+            right-0 bottom-0 border border-gray-300 rounded-full 
+            translate-x-1/3 translate-y-1/3 shadow-[0_4px_40px_rgba(149,0,162,0.15)] 
+            relative overflow-hidden">
+
+                    <img src="./images/circular-text.png" alt=""
+                        class="absolute w-[200%] h-[200%] object-contain -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
+                </div> -->
+
+            <div class="flex-1">
+                <p class="mb-10 max-w-2xl font-Ovo">
+                   Hi!
+                </p>
+
+                <ul class="grid grid-cols-1 sm:grid-cols-auto gap-6 max-w-2xl">
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover 
+                        hover:-translate-y-1 duration-500 hover:shadow-black
+                        dark:border-white dark:hover:shadow-white dark:hover:bg-darkhover/50
+                        ">
+                        <img src="./images/Workflow.png" alt="" class="w-7 mt-3 dark:hidden">
+                        <img src="./images/code-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white/80">My Workflow</h3>
+                        <p class="text-gray-600 text-sm dark:text-white/80">Consolidate → Clean → Analyze → Visualize →
+                            Communicate</p>
+                    </li>
+
+                    <li class=" border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover
+            hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white
+            dark:hover:shadow-white dark:hover:bg-darkhover/50">
+                        <img src="./images/edu-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+                        <img src="./images/edu-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white/80">Education</h3>
+                        <p class="text-gray-600 text-sm dark:text-white/80"><span
+                                class="font-semibold">2021–2024:</span><br> Bachelor of Business Administration<br>
+                            <span class="uppercase">The Technological Institute of Textile and Sciences, Bhiwani</span>
+                        </p>
+                        <p class="text-gray-600 text-sm dark:text-white/80 mt-2"><span
+                                class="font-semibold">2020–2021:</span><br> 12th Grade<br>
+                            <span class="uppercase">KM Public School, Bhiwani</span>
+                        </p>
+                    </li>
+
+
+                    <!-- <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover 
+            hover:-translate-y-1 duration-500 hover:shadow-black
+            dark:border-white dark:hover:shadow-white dark:hover:bg-darkhover/50">
+
+                        Normal Mode Icon -->
+                    <!-- <img src="./images/project-icon.png" alt="certificate icon" class="w-7 mt-3 dark:hidden"> -->
+
+                    <!-- Dark Mode Icon -->
+                    <!-- <img src="./images/Certification.png" alt="certificate icon dark"
+                            class="w-7 mt-3 hidden dark:block"> -->
+
+                    <!-- Heading -->
+                    <!-- <h3 class="my-4 font-semibold text-gray-700 dark:text-white/80">Certifications & Recommendations
+                        </h3> -->
+
+                    <!-- Description -->
+                    <!-- <p class="text-gray-600 text-sm dark:text-white/80">
+                            Certified achievements and professional recommendations highlighting skills and credibility.
+                        </p>
+                    </li> -->
+
+
+                    <div class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover 
+                        hover:-translate-y-1 duration-500 hover:shadow-black
+                        dark:border-white dark:hover:shadow-white dark:hover:bg-darkhover/50
+                        ">
+
+                        <img src="./images/project-icon.png" alt="certificate icon" class="w-7 mt-3 dark:hidden">
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white/80">Certifications</h3>
+
+                        <!-- Certificate of Completion -->
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="images/Certification.png" alt="Certificate Icon" class="w-6 h-6" />
+                            <a href="https://drive.google.com/file/d/1-LvAWHGcTZFOwdNzZ2QEkegKgs2-sk-2/view?usp=drive_link"
+                                target="_blank" class="text-blue-600 underline hover:underline">
+                                COC
+                            </a>
+                        </div>
+
+                        <!-- Letter of Recommendation -->
+                        <div class="flex items-center gap-3">
+                            <img src="images/Letter.png" alt="Recommendation Icon" class="w-6 h-6" />
+                            <a href="https://drive.google.com/file/d/1UHCbO8KbAaPxIuKng1dhPS8fjCXvE-Ix/view?usp=drive_link"
+                                target="_blank" class="text-blue-600 underline hover:underline">
+                                LOR
+                            </a>
+
+                        </div>
+
+                        <p>
+                            -----------------
+                        </p>
+
+                        <p class="text-gray-600 text-sm dark:text-white/80">
+                            Certified achievements and professional recommendations highlighting skills and credibility.
+                        </p>
+                    </div>
+
+
+
+                </ul>
+                <h4 class="my-6 text-gray-700 font-Ovo  dark:text-white/90">Tools I Use</h4>
+                <ul class="flex items-center gap-3 sm:gap-5">
+                    <li
+                        class="flex items-center justify-center w-12 
+                        sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="./images/PowerBI.png" alt="" class="w-5 sm:w-7">
+                    </li>
+                    <li
+                        class="flex items-center justify-center w-12 
+                        sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="./images/Postgres.png" alt="" class="w-5 sm:w-7">
+                    </li>
+                    <li
+                        class="flex items-center justify-center w-12 
+                        sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="./images/Python.png" alt="" class="w-5 sm:w-7">
+                    <li
+                        class="flex items-center justify-center w-12 
+                        sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="./images/Excel.png" alt="" class="w-5 sm:w-7">
+                    </li>
+                    <li
+                        class="flex items-center justify-center w-12 
+                        sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="./images/Server.png" alt="" class="w-5 sm:w-7">
+                    </li>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Experience Section -->
+    <div id="experience" class="w-full px-[12%] py-16 scroll-mt-20">
+        <h2 class="text-center text-5xl font-Ovo mb-12 dark:text-white">Experience</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- Experience Card 1 #1E1E1E -->
+            <div class="border rounded-2xl p-6 shadow-md transition-all duration-300 
+                   bg-white text-gray-800 dark:bg-[#11001f] dark:text-gray-200">
+                <h3 class="text-[#FBBF24] text-lg font-semibold mb-2">December 2024 - March 2025</h3>
+                <h4 class="text-2xl font-bold mb-1">Data Analyst</h4>
+                <p class="uppercase text-sm text-gray-500 dark:text-gray-400 mb-4">Purpleme India OPC</p>
+                <p class="mb-4">
+                    Engaged in various international projects, collaborating with foreign clients
+                    to deliver data-driven insights and solutions.
+                </p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Enhanced problem-solving, data modeling, and communication skills in a fast-paced,
+                        client-focused environment.</li>
+                    <li>Analyzed large datasets and created dynamic dashboards using Power BI, SQL, Excel, Google
+                        BigQuery, and Looker Studio.</li>
+                    <li>Successfully managed multiple projects under tight deadlines, ensuring timely delivery of
+                        accurate insights and reports.</li>
+                </ul>
+            </div>
+
+            <!-- Experience Card 2 -->
+            <div class="border rounded-2xl p-6 shadow-md transition-all duration-300 
+                   bg-white text-gray-800 dark:bg-[#11001f] dark:text-gray-200">
+                <h3 class="text-[#FBBF24] text-lg font-semibold mb-2">June - July 2023</h3>
+                <h4 class="text-2xl font-bold mb-1">Data Analytics Intern</h4>
+                <p class="uppercase text-sm text-gray-500 dark:text-gray-400 mb-4">
+                    The Technological Institute of Textile and Sciences (TIT&S), Bhiwani
+                </p>
+                <p class="mb-4">
+                    Contributed to the "Layout of ATM E-lobby" project, focusing on data recording and management tasks.
+                </p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Ensured precise data capture and maintained organized records to facilitate comprehensive
+                        insights.</li>
+                    <li>Supported data-driven decision-making by maintaining comprehensive records and providing
+                        insights based on data analysis.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo">My Portfolio</h4>
+        <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
+        <p class="text-center ma-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my Data Analyst portfolio! Explore the
+            collection
+            of projects
+            showcasing my expertise in Data Analytics Feild</p>
+
+        <div class="grid grid-cols-1 gap-10 my-10 max-w-6xl mx-auto">
+
+            <div class="w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl group bg-white">
+
+                <!-- Project Header -->
+                <div
+                    class="bg-gradient-to-r from-lime-200 to-lime-100 py-4 px-6 flex flex-col md:flex-row md:items-center md:justify-between border-b gap-3">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 font-Ovo">Sales Dashboard</h2>
+                        <p class="text-sm text-gray-700 font-Ovo">Tools Used: Power BI, SQL, Python</p>
+                    </div>
+
+                    <!-- Full Screen Link + Icon -->
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <span class="text-sm font-medium text-gray-800">Wanna Dive into Complete Analysis? Click here -
+                        </span>
+                        <a href="https://github.com/Chiragsharma106/GlobalTech---Sales-Project" target="_blank"
+                            class="border rounded-full border-black w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-[2px_2px_0#000] bg-lime-300 hover:bg-lime-400 transition">
+                            <img src="./images/send-icon.png" alt="Open Project" class="w-4 md:w-5">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Embedded Power BI -->
+                <div class="bg-gray-50 p-2 md:p-4">
+                    <iframe title="Sales Dashboard"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiZGY2NjRmYTYtODg0My00ZjA1LThjOTYtYzMyOGJhYTgxZjU0IiwidCI6IjYyZWE2YjA3LWY5YzUtNDk2My1hYWFhLWJjYmQ2YjhkNjFlZSJ9"
+                        frameborder="0" allowFullScreen="true"
+                        class="w-full h-[400px] md:h-[500px] rounded-lg shadow-md transition-transform duration-500 group-hover:scale-[1.01]">
+                    </iframe>
+                </div>
+            </div>
+
+
+            <div class="w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl group bg-white">
+
+                <!-- Project Header -->
+                <div
+                    class="bg-gradient-to-r from-lime-200 to-lime-100 py-4 px-6 flex flex-col md:flex-row md:items-center md:justify-between border-b gap-3">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 font-Ovo">Markelytics Ads Dashboard</h2>
+                        <p class="text-sm text-gray-700 font-Ovo">Tools Used: Power BI</p>
+                    </div>
+
+                    <!-- Full Screen Link + Icon -->
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <span class="text-sm font-medium text-gray-800">Wanna Dive into Complete Analysis? Click here
+                            -</span>
+                        <a href="https://github.com/Chiragsharma106/UK_Markelytics---Marketing-Project" target="_blank"
+                            class="border rounded-full border-black w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-[2px_2px_0#000] bg-lime-300 hover:bg-lime-400 transition">
+                            <img src="./images/send-icon.png" alt="Open Project" class="w-4 md:w-5">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Embedded Power BI -->
+                <div class="bg-gray-50 p-2 md:p-4">
+                    <iframe title="Markelytics Ads Dashboard"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiNmI1MTc4Y2EtOTA0NS00MTNlLTk1ZWMtMGM2ZGJmNWViMDFmIiwidCI6IjYyZWE2YjA3LWY5YzUtNDk2My1hYWFhLWJjYmQ2YjhkNjFlZSJ9"
+                        frameborder="0" allowFullScreen="true"
+                        class="w-full h-[400px] md:h-[500px] rounded-lg shadow-md transition-transform duration-500 group-hover:scale-[1.01]">
+                    </iframe>
+                </div>
+            </div>
+
+
+
+            <div class="w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl group bg-white">
+
+                <!-- Project Header -->
+                <div
+                    class="bg-gradient-to-r from-lime-200 to-lime-100 py-4 px-6 flex flex-col md:flex-row md:items-center md:justify-between border-b gap-3">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 font-Ovo">AeroVision Airlines</h2>
+                        <p class="text-sm text-gray-700 font-Ovo">Tools Used: Power BI</p>
+                    </div>
+
+                    <!-- Full Screen Link + Icon -->
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <span class="text-sm font-medium text-gray-800">Wanna Dive into Complete Analysis? Click here
+                            -</span>
+                        <a href="https://github.com/Chiragsharma106/AeroVision---Flights-Analysis-Project"
+                            target="_blank"
+                            class="border rounded-full border-black w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-[2px_2px_0#000] bg-lime-300 hover:bg-lime-400 transition">
+                            <img src="./images/send-icon.png" alt="Open Project" class="w-4 md:w-5">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Embedded Power BI -->
+                <div class="bg-gray-50 p-2 md:p-4">
+                    <iframe title="AeroVision Airlines Dashboard"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiOTU0OWFmN2QtNjk3OS00ODM5LTg5ZDAtNDQ0OGI2MWE4ZTRlIiwidCI6IjYyZWE2YjA3LWY5YzUtNDk2My1hYWFhLWJjYmQ2YjhkNjFlZSJ9"
+                        frameborder="0" allowFullScreen="true"
+                        class="w-full h-[400px] md:h-[500px] rounded-lg shadow-md transition-transform duration-500 group-hover:scale-[1.01]">
+                    </iframe>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <!-- <div class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover 
+                        bg-center rounded-lg relative cursor-pointer group">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                                -translate-x-1/2 py-3 px-5 flex items-center
+                                 justify-between duration-500 group-hover:bottom-7">
+
+                    <div>
+                        <h2 class="font-semibold">2nd Project</h2>
+                        <p class="text-sm text-gray-700">Write your description</p>
+                    </div>
+                    <div
+                        class="border rounded-full border-black w-9 
+                                        aspect-square flex items-center justify-center shadow-[2px_2px_0#000] group-hover:bg-lime-300 transition">
+                        <img src="./images/send-icon.png" alt="" class="w-5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover 
+                        bg-center rounded-lg relative cursor-pointer group">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                                -translate-x-1/2 py-3 px-5 flex items-center
+                                 justify-between duration-500 group-hover:bottom-7">
+
+                    <div>
+                        <h2 class="font-semibold">3rd Project</h2>
+                        <p class="text-sm text-gray-700">Write your description</p>
+                    </div>
+                    <div
+                        class="border rounded-full border-black w-9 
+                                        aspect-square flex items-center justify-center shadow-[2px_2px_0#000] group-hover:bg-lime-300 transition"> -->
+            <!-- <img src="./images/send-icon.png" alt="" class="w-5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="aspect-square bg-[url('./images/work-4.png')] bg-no-repeat bg-cover 
+                        bg-center rounded-lg relative cursor-pointer group">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                                -translate-x-1/2 py-3 px-5 flex items-center
+                                 justify-between duration-500 group-hover:bottom-7">
+
+                    <div>
+                        <h2 class="font-semibold">4th Project</h2>
+                        <p class="text-sm text-gray-700">Write your description</p>
+                    </div>
+                    <div
+                        class="border rounded-full border-black w-9 
+                                        aspect-square flex items-center justify-center shadow-[2px_2px_0#000] group-hover:bg-lime-300 transition">
+                        <img src="./images/send-icon.png" alt="" class="w-5">
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+        <a href="https://github.com/Chiragsharma106?tab=repositories" target="_blank" class="w-max flex items-center justify-center gap-2
+         text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 
+         hover:bg-lightHover duration-500
+         dark:text-white dark:border-white dark:hover:bg-darkhover
+         ">Show more
+            <img src="./images/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
+            <img src="./images/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
+        </a>
+    </div>
+
+    <!-- -------- Contact -------- -->
+
+    <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] 
+    bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
+        <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I'd love to Connect with you please use the form
+            below</p>
+
+        <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
+            <input type="hidden" name="access_key" value="4e387f43-5438-4d53-b15d-1312526caab0">
+
+            <div class="grid grid-cols-2 gap-6 mt-10 mb-8">
+                <input type="text" placeholder="Enter your name" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md 
+            bg-white dark:bg-darkhover/30 dark:border-white/90" required name="name">
+
+                <input type="email" placeholder="Enter your email" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md 
+            bg-white dark:bg-darkhover/30 dark:border-white/90" required name="email">
+            </div>
+
+            <textarea rows="6" placeholder="Enter your message" class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md 
+        bg-white mb-6 dark:bg-darkhover/30 dark:border-white/90" required name="message"></textarea>
+
+            <button class="py-3 px-8 w-max flex items-center justify-between gap-2 
+        bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 
+        dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkhover">
+                Submit now
+                <img src="./images/right-arrow-white.png" alt="" class="w-4">
+            </button>
+        </form>
+
+    </div>
+
+    <!-- ---- Footer ----- -->
+    <div class="mt-20">
+        <div class="text-center">
+            <!-- <img src="./images/logo.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
+            <img src="./images/logo_dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block"> -->
+
+
+            <div class="w-max flex items-center gap-2 mx-auto">
+                <img src="./images/mail_icon.png" alt="" class="w-6 hidden">
+                <img src="./images/mail_icon_dark.png" alt="" class="w-6 hidden dark:block">
+
+                ChiragSh146@gmail.com
+            </div>
+        </div>
+        <div class="text-center sm:flex items-center 
+        justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
+            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+                <li><a href="htpps://instagram.com">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/chirag-sharma-cc1/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/Chiragsharma106?tab=repositories" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
